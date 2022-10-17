@@ -13,7 +13,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1>Berita Kehilangan</h1>
+        <h1 className="text-3xl font-bold underline">Berita Kehilangan</h1>
       </main>
     </div>
   );
