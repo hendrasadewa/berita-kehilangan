@@ -8,11 +8,11 @@ export interface Location {
   descriptions?: string;
   provinceId?: string;
   provinceName?: string;
-  cityId?: number;
+  cityId?: string;
   cityName?: string;
-  regencyId?: number;
-  regencyName?: string;
-  villageId?: number;
+  districtId?: string;
+  districtName?: string;
+  villageId?: string;
   villageName?: string;
   coordinates?: Coordinates
 }

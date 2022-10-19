@@ -20,6 +20,5 @@ export interface Person {
   descriptions: string;
   age: number;
   gender?: Genders;
-  dateOfBirth?: Date;
   skinColor?: SkinShades;
 }

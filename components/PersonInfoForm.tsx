@@ -1,27 +1,17 @@
 import clsx from 'clsx';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { SkinHex } from '../supabase/constants/PersonConstants';
-import { Genders, SkinShades } from '../supabase/types/LostPersonTypes';
-
-export interface FormPayload {
-  fullname: string;
-  descriptions: string;
-  age: number;
-  gender?: Genders;
-  dateOfBirth?: Date;
-  skinColor?: SkinShades;
-}
+import { Genders, Person, SkinShades } from '../supabase/types/LostPersonTypes';
 
 interface Props {
-  onSubmit: (payload: FormPayload) => void;
+  onSubmit: (payload: Person) => void;
 }
 
 function PersonInfoForm({ onSubmit }: Props) {
-  const { register, handleSubmit } = useForm<FormPayload>();
+  const { register, handleSubmit } = useForm<Person>();
 
-  const onFormSubmit: SubmitHandler<FormPayload> = (payload) => {
+  const onFormSubmit: SubmitHandler<Person> = (payload) => {
     onSubmit(payload);
-    console.log(payload);
   };
 
   const skinOptions = Object.values(SkinShades).map((shades) => ({
@@ -36,10 +26,8 @@ function PersonInfoForm({ onSubmit }: Props) {
   const buttonClassName = clsx('btn', 'mt-2', 'btn-md');
 
   return (
-    <div className="w-96">
-      <div>
-        <h2 className="font-bold text-2xl text-center mb-8">Post Report</h2>
-      </div>
+    <div className="w-full">
+      <h3 className='text-xl'>Person Info</h3>
 
       <form onSubmit={handleSubmit(onFormSubmit)}>
         <div className="form-control">
@@ -53,22 +41,6 @@ function PersonInfoForm({ onSubmit }: Props) {
             className="input input-bordered w-full"
             id="fullnameInput"
           />
-        </div>
-
-        <div className="form-control">
-          <label className="label" htmlFor="fullnameInput">
-            <span className="label-text">Date of Birth</span>
-          </label>
-          <input
-            {...register('dateOfBirth', { required: false })}
-            type="date"
-            placeholder="birthday"
-            className="input input-bordered w-full"
-            id="fullnameInput"
-          />
-          <label className="label" htmlFor="fullnameInput">
-            <span className="label-text">*this field is optional</span>
-          </label>
         </div>
 
         <div className="form-control">
