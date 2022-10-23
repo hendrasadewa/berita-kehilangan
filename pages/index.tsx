@@ -13,7 +13,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="text-3xl font-bold underline">Berita Kehilangan</h1>
+        <div className="hero min-h-screen bg-base-200">
+          <div className="hero-content text-center">
+            <div className="max-w-md">
+              <h1 className="text-5xl font-bold">Mencari bersama komunitas</h1>
+              <p className="py-6">
+                Bulletin board dan Twitter bot kami akan membantu Kamu
+                berinteraksi dengan komunitas agar dapat segera bertemu kembali
+                dengan individu yang telah hilang
+              </p>
+              <button className="btn btn-primary">Get Started</button>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
